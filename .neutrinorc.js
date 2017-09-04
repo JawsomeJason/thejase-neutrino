@@ -1,5 +1,6 @@
 module.exports = {
   use: [
+    ['neutrino-preset-airbnb'],
     ['neutrino-preset-react', {
       html: { title: 'Epic React App' },
     }],
