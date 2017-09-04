@@ -10,7 +10,6 @@ $progressive: true !default;
 
 // sets css custom properties
 @mixin --var($properties, $module: $var-module) {
-  @debug $properties;
   // if this was called in a selector, apply it there,
   // otherwise, apply it at the :root (defaults)
   $parent: &;

@@ -1,12 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import reducers from './state/reducers';
 import App from './components/App';
+
+const store = createStore(reducers);
 
 const renderApp = () => {
   render(
     <AppContainer>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </AppContainer>,
     document.getElementById('root'),
   );

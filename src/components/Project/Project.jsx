@@ -1,6 +1,10 @@
 // import React from 'react';
 import React, { PropTypes } from 'react';
-import { styles as s, PROP_TYPES, DEFAULT_PROPS } from '.';
+import { styles as s } from '.';
+import {
+  PROP_TYPES,
+  DEFAULT_PROPS,
+} from '../../state/projects/data';
 import { className as c } from '../../utils/style-utils';
 
 const displayName = 'Project';
