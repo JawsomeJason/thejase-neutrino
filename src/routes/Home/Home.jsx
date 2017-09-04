@@ -1,5 +1,17 @@
 import React from 'react';
+import Home from '../../components/Home';
+import { DATA as projects } from '../../components/Project/Project.reducer';
+import {
+  skills,
+  testimonials,
+} from '../../data';
 
-const Home = () => <h1>Home</h1>;
+const props = {
+  projects,
+  skills,
+  testimonials,
+};
 
-export default Home;
+const HomeRoute = () => <Home {...props} />;
+
+export default HomeRoute;

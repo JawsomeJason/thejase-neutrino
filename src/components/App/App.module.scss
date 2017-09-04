@@ -14,6 +14,44 @@ $var-defaults: (
   list-style-type: none;
 }
 
+.container {
+  display: grid;
+  grid-template-areas:
+    'NAV ... HIRE'
+    'CONTENT CONTENT CONTENT'
+    'FOOTER FOOTER FOOTER';
+}
+
+.header {
+  grid-column: NAV / HIRE;
+  grid-row: NAV / HIRE;
+}
+
+.title {
+
+}
+
+.navigation {
+  grid-area: NAV;
+}
+
+.content {
+  grid-area: CONTENT;
+}
+
+.hire {
+  grid-area: HIRE;
+}
+
+.footer {
+  grid-area: FOOTER;
+}
+
+.small {
+
+}
+
+
 :global {
   body {
     // smallest reset

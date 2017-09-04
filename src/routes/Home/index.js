@@ -1,6 +1,7 @@
 import { asyncComponent } from 'react-async-component';
 
-export default asyncComponent({
-  resolve: () => import('./Home')
+const AsyncHome = asyncComponent({
+  resolve: () => import('./Home'),
 });
 
+export default AsyncHome;

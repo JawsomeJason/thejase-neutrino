@@ -1,0 +1,64 @@
+// var manager
+@import 'var';
+$var-module: Arrow;
+$var-defaults: (
+  joined: 1
+);
+
+// declare default vars for this module
+// use in module with `@include var(var-name);`
+@include --var($var-defaults);
+:root {
+  @media (hover: none) {
+    @include --var((
+      joined: 0,
+    ))
+  }
+}
+
+// .container {
+//   @include var(color);
+// }
+
+/* Arrow & Hover Animation */
+.container {
+  display: block;
+
+  &:hover,
+  &:focus {
+    @include --var((
+      joined: 0,
+    ));
+  }
+
+  &:active {
+    @include --var((joined: 1));
+  }
+}
+.shapes {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+
+.top,
+.middle,
+.bottom {
+  fill: #FFF;
+  transition: all .2s ease-out;
+  width: 3em;
+}
+
+.top {
+  transform: translateY(calc(18px * #{var(joined)}));
+}
+
+.middle {
+  opacity: .75;
+}
+
+.bottom {
+  transform: translateY(calc(-18px * #{var(joined)}));
+  opacity: .5;
+}

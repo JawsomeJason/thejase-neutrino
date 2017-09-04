@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+
+const { shape, string } = PropTypes;
 
 const Project = ({ match }) => {
   const { params: { id } } = match;
@@ -8,5 +10,14 @@ const Project = ({ match }) => {
       <p>ID: {id}</p>
     </div>
   );
-}
+};
+
+Project.propTypes = {
+  match: shape({
+    params: shape({
+      id: string,
+    }),
+  }).isRequired,
+};
+
 export default Project;
