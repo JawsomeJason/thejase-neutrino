@@ -13,9 +13,16 @@ $progressive: true !default;
   @debug $properties;
   // if this was called in a selector, apply it there,
   // otherwise, apply it at the :root (defaults)
-  #{if(&, #{&}, ':root')} {
+  $parent: &;
+
+  @if & {
     @each $property, $value in $properties {
       #{--name($property, $module)}: $value;
+    }
+  }
+  @else {
+    :root {
+      @include --var($properties, $module: $module);
     }
   }
 }
@@ -53,7 +60,7 @@ $progressive: true !default;
   @return if($default, $default, map-get($var-defaults, $property));
 }
 
-@function var-name($name) {
+@function var-name($name, $module: $var-module) {
   // explicit var reference if begins with `--`
   $explicit: str_index($name, '--') == 1;
   // interpolate if not explicit
@@ -61,7 +68,7 @@ $progressive: true !default;
     @return $name;
   }
 
-  @return "--#{if($var-module, $var-module + '__', '')}#{$name}";
+  @return "--#{if($module, $module + '__', '')}#{$name}";
 }
 
 @function var-native($name, $default) {
