@@ -4,7 +4,7 @@ import { styles as s } from '.';
 import {
   PROP_TYPES,
   DEFAULT_PROPS,
-} from '../../state/projects/data';
+} from '../../state/project';
 import { className as c } from '../../utils/style-utils';
 
 const displayName = 'Project';

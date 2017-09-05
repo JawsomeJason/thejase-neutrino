@@ -5,31 +5,24 @@ import { className as c } from '../../utils/style-utils';
 import Arrow from '../Arrow';
 import Section from '../Section';
 import Projects from '../Projects';
+import {
+  PROP_TYPES as PROJECT_PROP_TYPES,
+  DEFAULT_PROPS as PROJECT_DEFAULT_PROPS,
+} from '../../state/project';
 // import Skill from '../Skill';
 // import Testimonial from '../Testimonial';
 
 const displayName = 'Home';
 const propTypes = {
+  projects: PROJECT_PROP_TYPES.items,
 };
-const defaultProps = {};
+const defaultProps = {
+  projects: PROJECT_DEFAULT_PROPS.items,
+};
 
-const Home = () => {
-  const projects = (
-    <Section
-      {...c(s.projects)}
-      id="projects"
-      title="Project"
-      description={`
-        I’m fortunate to work with some of the best lifestyle, commerce, and B2B groups in the industry.
-
-
-        *The following is a selection of my favorite contributions.*
-      `}
-    >
-      <Projects />
-    </Section>
-  );
-
+const Home = ({
+  projects,
+}) => {
   const skills = false;
   // (
   //   <Section
@@ -78,7 +71,23 @@ const Home = () => {
           <Arrow href="#projects" title="Read more" />
         </p>
       </header>
-      {projects}
+
+      {projects.length && (
+        <Section
+          {...c(s.projects)}
+          id="projects"
+          title="Project"
+          description={`
+            I’m fortunate to work with some of the best lifestyle, commerce, and B2B groups in the industry.
+
+
+            *The following is a selection of my favorite contributions.*
+          `}
+        >
+          <Projects items={projects} />
+        </Section>
+      )}
+
       {testimonials}
       {skills}
     </article>
