@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import data from '../data/project';
+import data from '../data/projects';
 
 /* eslint-disable import/prefer-default-export */
 export const types = {
